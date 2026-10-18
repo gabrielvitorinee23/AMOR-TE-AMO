@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#dceeff">
+  <title>Para você, meu amor ♡</title>
+  <style>
+    :root{
+      --blue:#cfe7ff; --blue-deep:#6b9fd1; --pink:#ffd6e5; --pink-deep:#d982a5;
+      --cream:#fffafd; --ink:#4f526b; --muted:#777b93; --white:rgba(255,255,255,.78);
+      --shadow:0 18px 50px rgba(111,132,177,.15);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;background:linear-gradient(135deg,#e2f1ff 0%,#fff5fa 48%,#e7eaff 100%);overflow-x:hidden}
+    button{font:inherit;cursor:pointer}
+    .sky{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+    .orb{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;animation:drift 12s ease-in-out infinite alternate}
+    .orb.one{width:280px;height:280px;background:#b9dcff;top:7%;left:-100px}
+    .orb.two{width:340px;height:340px;background:#ffd3e5;right:-130px;top:38%;animation-delay:-4s}
+    .orb.three{width:220px;height:220px;background:#d8d9ff;bottom:-70px;left:28%;animation-delay:-7s}
+    @keyframes drift{to{transform:translate(25px,-30px) scale(1.08)}}
+    .float-heart{position:fixed;bottom:-40px;color:#eaa5c1;opacity:.5;pointer-events:none;z-index:0;animation:rise linear forwards}
+    @keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+    header{padding:22px 6vw;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-family:Georgia,serif;font-size:1.15rem;color:#718db5;letter-spacing:.02em}
+    .tiny-heart{color:#e78eaf}
+    .music-btn{border:1px solid rgba(120,151,194,.25);background:rgba(255,255,255,.65);color:#6d7f9f;padding:10px 15px;border-radius:999px;box-shadow:0 6px 18px #8aa6c51a}
+    main{width:min(1050px,92%);margin:0 auto}
+    .hero{min-height:77vh;display:grid;place-items:center;text-align:center;padding:40px 10px 70px;position:relative}
+    .hero-card{max-width:760px}
+    .eyebrow{display:inline-block;padding:8px 15px;border:1px solid #fff;background:#ffffff8c;border-radius:999px;color:#8c8eaf;font-size:.83rem;letter-spacing:.04em}
+    .hero-heart{font-size:clamp(3.5rem,10vw,6.2rem);line-height:1.2;margin:16px 0 8px;display:inline-block;filter:drop-shadow(0 8px 15px #ed9fbe50);animation:heartbeat 2.2s ease-in-out infinite}
+    @keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.09)}28%{transform:scale(1)}42%{transform:scale(1.06)}}
+    h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+    h1{font-size:clamp(2.5rem,7vw,5.2rem);line-height:1.05;letter-spacing:-.045em;margin:12px 0 20px;color:#637fa8}
+    h1 em{font-weight:400;color:#d886a7}
+    .hero p{font-size:clamp(1rem,2.4vw,1.2rem);line-height:1.8;color:#777b94;max-width:610px;margin:0 auto 28px}
+    .primary{border:0;border-radius:999px;padding:14px 24px;background:linear-gradient(100deg,#9dcaff,#f3b6cf);color:#fff;font-weight:700;box-shadow:0 10px 25px #b7bce455;transition:.25s}
+    .primary:hover{transform:translateY(-3px);box-shadow:0 14px 28px #b7bce477}
+    .scroll-note{position:absolute;bottom:18px;color:#9a9bb3;font-size:.82rem;animation:bob 2s infinite}
+    @keyframes bob{50%{transform:translateY(5px)}}
+    section{padding:55px 0;scroll-margin-top:25px}
+    .section-head{text-align:center;margin-bottom:28px}
+    .section-head .kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#c47f9d}
+    h2{font-size:clamp(2rem,5vw,3.15rem);color:#7189ad;margin:8px 0 12px;letter-spacing:-.025em}
+    .section-head p{color:var(--muted);line-height:1.7;max-width:620px;margin:0 auto}
+    .glass{background:var(--white);border:1px solid #ffffffd9;border-radius:28px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+    .letter{padding:clamp(24px,5vw,48px);max-width:820px;margin:0 auto;position:relative;overflow:hidden}
+    .letter:after{content:"♡";position:absolute;font-size:8rem;right:16px;bottom:-42px;color:#f2c7d9;opacity:.35;transform:rotate(-15deg)}
+    .letter p{font-family:Georgia,serif;font-size:1.08rem;line-height:1.95;color:#666a83;position:relative;z-index:1}
+    .signature{color:#d182a2!important;font-style:italic;text-align:right}
+    .counter-wrap{padding:30px 18px;text-align:center}
+    .counter-date{color:#8a8da7;margin-bottom:18px}
+    .counter{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .time-box{min-width:105px;padding:19px 15px;border-radius:20px;background:linear-gradient(145deg,#ffffffd9,#e9f3ffcc);border:1px solid #fff;box-shadow:0 8px 20px #98b4d51a}
+    .time-box strong{display:block;font-size:clamp(2rem,6vw,3rem);font-weight:700;color:#7598c3;line-height:1.2}
+    .time-box span{font-size:.82rem;color:#9295ad}
+    .counter-caption{margin:22px 0 0;color:#d182a2;font-family:Georgia,serif;font-size:1.15rem}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+    .reason{padding:22px 20px;min-height:145px;transition:transform .25s}
+    .reason:hover{transform:translateY(-5px)}
+    .reason .symbol{font-size:1.5rem;margin-bottom:10px}
+    .reason p{margin:0;line-height:1.65;color:#70758d}
+    .reveal-area{text-align:center;margin-top:20px}
+    .secondary{border:1px solid #d7dff3;border-radius:999px;background:#ffffffa8;color:#7b8eb3;padding:12px 19px}
+    .letter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .note-card{padding:22px;text-align:left;border:1px solid #fff;background:#ffffffa6;border-radius:23px;box-shadow:0 10px 28px #9aadd31c;transition:.2s}
+    .note-card:hover{transform:translateY(-3px);background:#ffffffd9}
+    .note-card .icon{font-size:1.7rem}
+    .note-card h3{font-size:1.3rem;color:#b77d9d;margin:10px 0}
+    .note-card p{color:#70758d;line-height:1.75;margin:0}
+    .dreams{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .dream{padding:20px 12px;text-align:center}
+    .dream span{font-size:1.8rem;display:block;margin-bottom:9px}
+    .dream p{font-size:.93rem;line-height:1.5;margin:0;color:#767b94}
+    .secret{padding:clamp(25px,5vw,45px);text-align:center;max-width:760px;margin:0 auto}
+    .secret-message{font-family:Georgia,serif;font-size:1.18rem;line-height:1.9;color:#72758d;margin:22px auto 0;max-width:600px}
+    .hidden{display:none}
+    .final{padding:70px 15px 80px;text-align:center}
+    .final .big-heart{font-size:4rem;animation:heartbeat 2.2s infinite}
+    .final h2{max-width:720px;margin:12px auto}
+    .final p{max-width:620px;line-height:1.9;color:#777b94;margin:15px auto}
+    footer{text-align:center;padding:25px;color:#9698af;font-size:.85rem}
+    .toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);background:#fff;color:#8b789d;padding:12px 18px;border-radius:999px;box-shadow:var(--shadow);opacity:0;transition:.25s;pointer-events:none;z-index:5}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:720px){header{padding:18px 5%;}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.dreams{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{min-height:75vh}.letter-grid{grid-template-columns:1fr}}
+    @media(max-width:420px){.cards{grid-template-columns:1fr}.time-box{min-width:calc(50% - 8px)}.brand{font-size:1rem}.music-btn{padding:9px 11px;font-size:.85rem}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="sky" aria-hidden="true"><div class="orb one"></div><div class="orb two"></div><div class="orb three"></div></div>
+  <header>
+    <div class="brand">um pedacinho do meu coração <span class="tiny-heart">♡</span></div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-card">
+        <div class="eyebrow">feito com carinho, só pra você</div>
+        <div class="hero-heart" aria-hidden="true">💗</div>
+        <h1>Para você,<br><em>meu amor.</em></h1>
+        <p>Eu queria encontrar um jeito diferente de te lembrar o quanto você é especial pra mim. Então fiz esse cantinho nosso, cheio de palavras que vêm direto do meu coração.</p>
+        <button class="primary" onclick="document.getElementById('declaracao').scrollIntoView({behavior:'smooth'})">Abre seu presente, meu bem ♡</button>
+      </div>
+      <div class="scroll-note">tem carinho esperando por você ↓</div>
+    </section>
+
+    <section id="declaracao">
+      <div class="section-head"><div class="kicker">uma cartinha pra você</div><h2>Você faz meu mundo mais bonito</h2><p>Tem coisas que eu sinto tão forte que às vezes nem sei como explicar.</p></div>
+      <article class="glass letter">
+        <p>Meu amor,</p>
+        <p>Desde que você chegou à minha vida, meus dias ganharam um motivo a mais pra ter um sorriso bobo no rosto. Pode parecer simples, mas receber uma mensagem sua, conversar com você ou imaginar a gente juntinho já deixa tudo mais bonito.</p>
+        <p>Eu queria poder te dar um abraço agora, daqueles demorados, em que o mundo fica quietinho por alguns segundos. Queria olhar nos seus olhos e mostrar, sem precisar dizer muita coisa, o quanto você significa pra mim. Enquanto esse momento não chega, espero que cada palavra aqui seja um pedacinho desse abraço que estou guardando pra você.</p>
+        <p>Não prometo ser perfeito, meu bem. Prometo querer aprender, te ouvir, cuidar do que a gente está construindo e fazer o possível pra que você nunca duvide do carinho que sinto. Quero colecionar momentos com você, rir de besteiras, realizar nossos planos e olhar pra nossa história no futuro com o coração quentinho.</p>
+        <p>Obrigado por ser parte dos meus dias e por me deixar viver esse sentimento tão bonito. Nossa história ainda está começando, e eu tenho tanta vontade de descobrir tudo o que a vida ainda guarda pra nós.</p>
+        <p class="signature">Com todo o meu amor, hoje e sempre. ♡</p>
+      </article>
+    </section>
+
+    <section id="contador">
+      <div class="section-head"><div class="kicker">desde 07 de outubro de 2026</div><h2>Nosso amor em números</h2><p>O tempo passando, e eu feliz por cada pedacinho da nossa história.</p></div>
+      <div class="glass counter-wrap">
+        <div class="counter-date">Estamos juntinhos há…</div>
+        <div class="counter" aria-live="polite">
+          <div class="time-box"><strong id="days">11</strong><span>dias</span></div>
+          <div class="time-box"><strong id="hours">00</strong><span>horas</span></div>
+          <div class="time-box"><strong id="minutes">00</strong><span>minutos</span></div>
+          <div class="time-box"><strong id="seconds">00</strong><span>segundos</span></div>
+        </div>
+        <p class="counter-caption">E eu escolheria você de novo, em cada um deles. ♡</p>
+      </div>
+    </section>
+
+    <section id="motivos">
+      <div class="section-head"><div class="kicker">e eu poderia continuar…</div><h2>Motivos pelos quais eu te amo</h2><p>Alguns dos infinitos detalhes que fazem você ser tão especial pra mim.</p></div>
+      <div class="cards" id="reasonCards">
+        <div class="glass reason"><div class="symbol">♡</div><p>Porque você consegue deixar meu dia melhor só por estar nele.</p></div>
+        <div class="glass reason"><div class="symbol">☁</div><p>Porque até de longe você consegue me fazer sentir pertinho.</p></div>
+        <div class="glass reason"><div class="symbol">✧</div><p>Porque conversar com você é uma das partes mais gostosas do meu dia.</p></div>
+        <div class="glass reason"><div class="symbol">🌷</div><p>Porque eu quero conhecer cada detalhe do seu jeitinho.</p></div>
+        <div class="glass reason"><div class="symbol">☾</div><p>Porque você aparece nos meus pensamentos até nos momentos mais aleatórios.</p></div>
+        <div class="glass reason"><div class="symbol">∞</div><p>Porque quero construir lembranças lindas e verdadeiras com você.</p></div>
+      </div>
+      <div class="reveal-area"><button class="secondary" id="moreReason">Me conta mais um motivo ♡</button></div>
+    </section>
+
+    <section id="cartinhas">
+      <div class="section-head"><div class="kicker">abra quando precisar</div><h2>Cartinhas pra guardar no coração</h2><p>Escolha uma cartinha. Ela foi feita pra um daqueles momentos em que você precisa de carinho.</p></div>
+      <div class="letter-grid">
+        <button class="note-card" data-note="saudade"><span class="icon">💌</span><h3>Quando sentir saudade</h3><p>Um abraço em forma de palavras está te esperando.</p></button>
+        <button class="note-card" data-note="triste"><span class="icon">🩷</span><h3>Quando estiver triste</h3><p>Pra lembrar que você merece cuidado e amor.</p></button>
+        <button class="note-card" data-note="insegura"><span class="icon">✨</span><h3>Quando precisar se lembrar</h3><p>Você é importante, inclusive nos dias difíceis.</p></button>
+        <button class="note-card" data-note="dormir"><span class="icon">🌙</span><h3>Antes de dormir</h3><p>Uma última dose de carinho antes dos sonhos.</p></button>
+      </div>
+      <div class="glass secret hidden" id="noteReveal" style="margin-top:18px" aria-live="polite">
+        <div style="font-size:2rem" id="noteIcon">💌</div><h3 id="noteTitle" style="color:#bd83a0;font-size:1.6rem">Uma cartinha pra você</h3><p class="secret-message" id="noteText"></p>
+      </div>
+    </section>
+
+    <section id="sonhos">
+      <div class="section-head"><div class="kicker">um dia de cada vez</div><h2>Sonhos que quero viver com você</h2><p>Não precisa ser tudo agora. Quero que a gente construa cada lembrança no nosso tempo.</p></div>
+      <div class="dreams">
+        <div class="glass dream"><span>🤍</span><p>Dar nosso primeiro abraço bem apertado</p></div>
+        <div class="glass dream"><span>🎬</span><p>Assistir a filmes juntinhos</p></div>
+        <div class="glass dream"><span>📸</span><p>Tirar fotos de momentos bobos e felizes</p></div>
+        <div class="glass dream"><span>🌅</span><p>Conhecer lugares novos lado a lado</p></div>
+        <div class="glass dream"><span>🍿</span><p>Dividir lanches e rir de qualquer coisa</p></div>
+        <div class="glass dream"><span>🌷</span><p>Fazer pequenas surpresas um pro outro</p></div>
+        <div class="glass dream"><span>💫</span><p>Realizar nossos planos aos pouquinhos</p></div>
+        <div class="glass dream"><span>♡</span><p>Continuar escolhendo cuidar do nosso amor</p></div>
+      </div>
+    </section>
+
+    <section id="surpresa">
+      <div class="section-head"><div class="kicker">psiu… tem mais uma coisa</div><h2>Uma mensagem só sua</h2><p>Essa parte fica aqui até você decidir abrir.</p></div>
+      <div class="glass secret">
+        <div style="font-size:3rem">🎀</div>
+        <button class="primary" id="secretButton">Descobrir minha mensagem secreta</button>
+        <p class="secret-message hidden" id="secretMessage">Se eu pudesse escolher um lugar pra estar agora, escolheria estar ao seu lado. Queria segurar sua mão, te abraçar bem forte e fazer você sentir o tamanho do carinho que existe aqui dentro. Até esse dia chegar, quero que você encontre em cada palavra minha um pouquinho do abraço que estou guardando pra você. Eu te amo, meu bem. ♡</p>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="big-heart">💗</div>
+      <h2>Se eu pudesse te escolher mil vezes, seriam mil vezes você.</h2>
+      <p>Talvez eu nunca encontre palavras suficientes pra explicar tudo o que sinto, mas quero continuar tentando, dia após dia. Quero que você se sinta amada, respeitada e importante. Obrigado por fazer parte da minha vida. Que esse seja só um dos muitos jeitos de te lembrar o quanto você é especial pra mim.</p>
+      <p style="font-family:Georgia,serif;color:#d182a2;font-size:1.2rem">Eu te amo, hoje e em todos os dias que ainda vamos viver. ♡</p>
+      <button class="secondary" id="hugButton">Enviar um abraço virtual ♡</button>
+    </section>
+  </main>
+  <footer>feito com amor, especialmente pra você ♡</footer>
+  <div class="toast" id="toast" role="status">Um abraço bem apertado chegou até você ♡</div>
+
+  <script>
+    // Data de início do namoro: 7 de outubro de 2026.
+    // Como o horário exato em que começaram a namorar não foi informado,
+    // o contador considera a meia-noite do dia 07/10/2026 no horário local.
+    const startDate = new Date(2026, 9, 7, 0, 0, 0);
+    const pad = n => String(n).padStart(2, '0');
+    function updateCounter(){
+      const now = new Date();
+      let diff = Math.max(0, now - startDate);
+      const day = Math.floor(diff / 86400000); diff %= 86400000;
+      const hour = Math.floor(diff / 3600000); diff %= 3600000;
+      const minute = Math.floor(diff / 60000); diff %= 60000;
+      const second = Math.floor(diff / 1000);
+      document.getElementById('days').textContent = day;
+      document.getElementById('hours').textContent = pad(hour);
+      document.getElementById('minutes').textContent = pad(minute);
+      document.getElementById('seconds').textContent = pad(second);
+    }
+    updateCounter(); setInterval(updateCounter, 1000);
+
+    const reasons = [
+      'Porque seu sorriso é uma das coisas que eu mais quero ver de perto.',
+      'Porque quero ouvir suas histórias, até as mais pequenas.',
+      'Porque você merece receber o mesmo carinho bonito que oferece.',
+      'Porque gosto de imaginar os momentos simples que ainda vamos viver.',
+      'Porque quero ser alguém com quem você possa conversar de coração aberto.',
+      'Porque você faz nascer em mim vontade de criar lembranças novas.',
+      'Porque amo a ideia de aprender cada vez mais sobre você.',
+      'Porque quero comemorar suas vitórias e te apoiar nos dias complicados.',
+      'Porque o que estamos construindo merece paciência, verdade e cuidado.',
+      'Porque até a espera pelo nosso abraço tem um significado especial.',
+      'Porque quero que a gente consiga rir junto das nossas próprias besteiras.',
+      'Porque eu não preciso de um dia perfeito pra gostar de conversar com você.'
+    ];
+    let reasonIndex = 0;
+    document.getElementById('moreReason').addEventListener('click', () => {
+      const grid = document.getElementById('reasonCards');
+      const item = document.createElement('div');
+      item.className = 'glass reason';
+      item.innerHTML = '<div class="symbol">♡</div><p></p>';
+      item.querySelector('p').textContent = reasons[reasonIndex % reasons.length];
+      grid.appendChild(item);
+      reasonIndex++;
+      if(reasonIndex >= reasons.length) document.getElementById('moreReason').textContent = 'Ainda tenho muitos motivos no coração ♡';
+    });
+
+    const notes = {
+      saudade:{icon:'💌',title:'Quando a saudade apertar',text:'Meu bem, se eu pudesse, atravessava qualquer distância só pra te dar um abraço agora. Como ainda não posso, fecha os olhos por um instante e imagina meus braços te envolvendo bem forte. A distância não apaga o carinho que sinto. Um dia, a gente vai transformar essa saudade em abraço de verdade. Até lá, leva um pedacinho do meu coração com você. ♡'},
+      triste:{icon:'🩷',title:'Você não precisa estar bem o tempo todo',text:'Meu amor, respira um pouquinho. Você não precisa resolver tudo agora e nem fingir que está tudo bem quando não estiver. Quero que você tenha espaço pra sentir, descansar e falar sobre o que pesa. Eu talvez nem sempre saiba a palavra perfeita, mas quero te ouvir com carinho. Você importa nos dias felizes e também nos dias difíceis. ♡'},
+      insegura:{icon:'✨',title:'Nunca se esqueça do seu valor',text:'Quero que você se lembre de que seu valor não depende de um dia ruim, de uma opinião ou de qualquer insegurança que apareça. Você merece respeito, cuidado, paciência e amor sincero. Eu gosto de você pelo seu jeitinho, pelas coisas que fazem você ser você e por tudo o que ainda vamos descobrir um sobre o outro. ♡'},
+      dormir:{icon:'🌙',title:'Boa noite, meu amor',text:'Se eu estivesse aí, te desejaria boa noite pertinho de você e daria um beijo na sua testa antes de te deixar descansar. Como estou daqui, deixo essas palavras como um carinho antes do sono. Que sua noite seja tranquila, que seu coração descanse e que você acorde lembrando que existe alguém torcendo pelo seu sorriso. Dorme bem, meu bem. ♡'}
+    };
+    document.querySelectorAll('[data-note]').forEach(btn => btn.addEventListener('click', () => {
+      const note = notes[btn.dataset.note];
+      document.getElementById('noteIcon').textContent = note.icon;
+      document.getElementById('noteTitle').textContent = note.title;
+      document.getElementById('noteText').textContent = note.text;
+      const reveal = document.getElementById('noteReveal');
+      reveal.classList.remove('hidden');
+      reveal.scrollIntoView({behavior:'smooth',block:'center'});
+    }));
+    document.getElementById('secretButton').addEventListener('click', () => {
+      document.getElementById('secretMessage').classList.remove('hidden');
+      document.getElementById('secretButton').textContent = 'Mensagem aberta com amor ♡';
+    });
+
+    function heartBurst(count=18){
+      for(let i=0;i<count;i++){
+        const h=document.createElement('span'); h.className='float-heart';
+        h.textContent=['♡','♥','ღ','✧'][Math.floor(Math.random()*4)];
+        h.style.left=(Math.random()*100)+'vw';
+        h.style.fontSize=(14+Math.random()*20)+'px';
+        h.style.animationDuration=(5+Math.random()*5)+'s';
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),11000);
+      }
+    }
+    setInterval(()=>heartBurst(2),2200);
+    document.getElementById('hugButton').addEventListener('click',()=>{
+      heartBurst(32);
+      const toast=document.getElementById('toast'); toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'),2600);
+    });
+
+
+  </script>
+</body>
+</html>
